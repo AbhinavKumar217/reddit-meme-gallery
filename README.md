@@ -23,11 +23,11 @@ Abhinav Kumar
 
 1. Clone the repository:
 
-   ``` git clone https://github.com/your-username/meme-gallery-nextjs.git ```
+   ``` git clone https://github.com/AbhinavKumar217/reddit-meme-gallery.git ```
 
 2. Change into the project directory:
 
-   ``` cd meme-gallery-nextjs ```
+   ``` cd meme-gallery ```
 
 3. Install dependencies:
 
