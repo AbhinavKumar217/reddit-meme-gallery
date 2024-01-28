@@ -1,4 +1,3 @@
-// pages/index.tsx
 import React from 'react';
 import MemeGallery from '../components/MemeGallery';
 

@@ -1,14 +1,13 @@
-// components/MemeGallery.tsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Modal from "react-modal";
 import { Close as CloseIcon } from "@mui/icons-material";
 
-const getRandomImageUrl = () => {
-  const randomNumber = Math.floor(Math.random() * 1000); // Adjust the range as needed
-  return `https://picsum.photos/1920/1080?random=${randomNumber}`;
-};
+// const getRandomImageUrl = () => {
+//   const randomNumber = Math.floor(Math.random() * 1000);
+//   return `https://picsum.photos/1920/1080?random=${randomNumber}`;
+// };
 
 const galleryStyle: React.CSSProperties = {
   display: "grid",
@@ -27,25 +26,26 @@ const additionalContentStyle: React.CSSProperties = {
   padding: "20px",
   position: "relative",
   borderRadius: "15px",
-  background: "linear-gradient(45deg, #ff6b6b, #3b5998)", // Semi-transparent white background
+  background: "linear-gradient(45deg, #ff6b6b, #3b5998)",
   boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
 };
 
 const modalStyle: ReactModal.Styles = {
   content: {
     maxWidth: "80%",
-    maxHeight: "80%",
+    maxHeight: "100%",
     margin: "auto",
     border: "none",
     borderRadius: "8px",
-    overflow: "hidden",
+    overflow: "auto",
+    position: "fixed"
   },
 };
 
 const closeButtonStyle: React.CSSProperties = {
-  zIndex: 1, // Set a higher zIndex to ensure it appears on top
+  zIndex: 1,
   cursor: "pointer",
-  display: "none", // Initially hide the close button
+  display: "none",
 };
 
 interface Meme {
@@ -98,7 +98,6 @@ const MemeGallery: React.FC = () => {
   const handleModalClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    // Close the modal if the click occurs outside the image
     if (event.target === event.currentTarget) {
       closeGallery();
     }
@@ -109,7 +108,6 @@ const MemeGallery: React.FC = () => {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      // User has scrolled to the bottom
       fetchMemes();
     }
   };
@@ -136,7 +134,7 @@ const MemeGallery: React.FC = () => {
         <br />
         <div
           style={{
-            position: "absolute",
+            position: "fixed",
             top: "10px",
             right: "10px",
             cursor: "pointer",
@@ -155,7 +153,7 @@ const MemeGallery: React.FC = () => {
               <img
                 src={meme.thumbnail}
                 alt={meme.title}
-                loading="lazy" // Add lazy loading attribute
+                loading="lazy"
                 style={{
                   width: "100%",
                   borderRadius: "8px",
@@ -165,7 +163,7 @@ const MemeGallery: React.FC = () => {
             </div>
           ))}
         </div>
-        {/* Modal */}
+        
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeGallery}
@@ -182,7 +180,7 @@ const MemeGallery: React.FC = () => {
               style={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: "none",
                 borderRadius: "8px",
               }}
             />

@@ -1,10 +1,9 @@
-// pages/_app.tsx
 import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Head from 'next/head';
-import '@fontsource/roboto'; // Import the Roboto font
+import '@fontsource/roboto';
 
 const theme = createTheme();
 
